@@ -38,3 +38,4 @@ It was implemented this way to make spawning the abilities easier while also pro
 When it comes to the Plugin/DLL implementation, I created a health system that can add health, take away health, and check if the entity is dead. I used this in my game to handle the health of the player and the boss enemy. It is a very basic implementation of a health system, but it can be further iterated upon to allow for more features, like storing health data inside the system instead of creating health data individually for each entity. This implementation suits this experience as it provides a very easy-to-use system to do simple health calculations, while also being extremely reusable on possible future projects where a health system would be needed.
 
 #### Video Report
+https://youtu.be/ROFFGtmd5G8
