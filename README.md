@@ -12,19 +12,25 @@ The scenario I will be using to develop the assignment's deliverables will be a 
 The player is expected to use various abilities, such as a fire or water ability, to defeat the boss. The game will include audio functionality, a simple combat system, a boss enemy, and various systems to handle health, damage, ability spawning, etc.
 
 #### Singleton
-For the singleton implementation, I decided to create an Audio Manager using the Game Instance Blueprint that manages the playback of sound effects and music, stopping music, and audio volume adjustability.
+
+For the singleton implementation, I decided to create an Audio Manager using the Game Instance Blueprint that manages the playback of sound effects and music, stops music, and adjusts audio volume.
 It was implemented this way to provide easy access to playing sound effects and music or stopping music from any class. The main reason for this way of implementation was to make adjusting the volume of both sound effects and music simpler.
-For instance, the singleton that I have implemented contains a variable that corresponds to the sound effect or music volume managed in one single place. If I wanted to do volume control without a singleton i would have to set the volume of every sound effect I use manually.
-My interactive media experience benefits from this because audio is a crucial part of any game and being able to easily handle audio inside any game makes the development process simpler.
+For instance, the singleton that I have implemented contains a variable that corresponds to the sound effect or music volume managed in one single place. If I wanted to do volume control without a singleton, I would have to set the volume of every sound effect I use manually.
+My interactive media experience benefits from this because audio is a crucial part of any game, and being able to easily handle audio inside any game makes the development process simpler.
 
 #### Command design pattern
-When it comes to the command design pattern implementation, I decided to create a system that 
+
+The command design pattern implementation was definitely the trickiest one. I decided to create a system that handles commands for the gameplay mechanics. To explain in further detail, I created a command interface that includes an execution function that allows commands like swapping abilities and attacking to be created.
+The command pattern was implemented this way to allow for a more complex but better way of handling gameplay mechanic logic, where the ability logic is all handled inside the command, while the execution can be handled anywhere as long as there is a reference to it. 
+The command implementation benefits the experience as it provides a more modular approach to creating and executing abilities in the game.
 
 #### Factory pattern
-Moving on to the factory pattern implementation, I created a factory that creates different abilities. The base object that the factory produces is a projectile, but inheriting from the projectile I created a fire and water projectile that have their own unique interactions with the boss and player.
 
+Moving on to the factory pattern implementation, I created a factory that creates different abilities. The base object that the factory produces is a projectile, but inheriting from the projectile, I created a fire and water projectile that have their own unique interactions with the boss and player.
+It was implemented this way to make spawning the abilities easier while also providing a better implementation alongside the command design pattern. The experience benefits from this implementation because it creates a very modular system that can be easily expanded in the future if more abilities need to be added.
 
 #### Plugin/DLL
 
+When it comes to the Plugin/DLL implementation, I created a health system that can add health, take away health, and check if the entity is dead. I used this in my game to handle the health of the player and the boss enemy. It is a very basic implementation of a health system, but it can be further iterated upon to allow for more features, like storing health data inside the system instead of creating health data individually for each entity. This implementation suits this experience as it provides a very easy-to-use system to do simple health calculations, while also being extremely reusable on possible future projects where a health system would be needed.
 
 #### Video Report
