@@ -8,9 +8,13 @@ A major improvement that I have made from the previous assignment is upgrading t
 
 <img width="1814" height="720" alt="Screenshot 2025-11-19 232825" src="https://github.com/user-attachments/assets/058fa02a-88e7-47d7-88d5-f0f85851a495" />
 
-This is the function that changes the music state inside the audio manager Singleton. The reason why I implemented it this way was due to the Singleton being a global instance that can be accessed from any class. For instance, inside my game, I accessed the singleton to change the music state from 3 different blueprints across my project for certain events, such as entering the main menu level, which changes to the InMenu state, entering the main level, which changes to the Default state, and hitting the boss, which changes to the InCombat state. It was also implemented this way due to most of the audio logic already being handled by the Singleton.
+This is the function that changes the music state inside the audio manager Singleton. The reason why I implemented it this way was due to the Singleton being a global instance that can be accessed from any class. For instance, inside my game, I accessed the singleton to change the music state from 3 different blueprints across my project for certain events, such as entering the main menu level, which changes to the InMenu state, entering the main level, which changes to the Default state, and hitting the boss, which changes to the InCombat state. It was also implemented this way due to most of the audio logic in the game already being handled by the Singleton.
 
 #### Optimization
+The optimization design pattern that I chose to implement was Dirty Flag. It seemed like the most reasonable optimization pattern to implement in my project for one main reason which was the size of the project. 
+
+<img width="681" height="96" alt="DirtyFlag" src="https://github.com/user-attachments/assets/b2c3fc37-8d8a-40ce-a243-e8bb2b18c1cc" />
+
 
 
 #### Observer and State
