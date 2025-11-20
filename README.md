@@ -1,41 +1,23 @@
-# Course Project | Game Engine Design and Implementation
+# Final Course Project | Game Engine Design and Implementation
 Jaden Chen 100912701
 
-#### Group formation
-I decided to work alone on this project for two reasons: to get a more in-depth understanding of the course material, and to create systems that will most likely be implemented in my GDW game. I figured that for this project, it would be a good idea to create systems that could be used in my GDW game, so 
-I could save time by creating 5 systems applicable to both my GDW game and this project, instead of creating 5 systems specifically for this project, then having to create an additional 1-5 for my game.
+- As I completed the project solo, I implemented the Optimization, Observer and State design patterns, also including improvements from the previous assignment and Performance Profiling.
 
-- I will be contributing 100% of the work and will be responsible for the Singleton, Factory, Command, Plugin/DLL, and Observation design pattern ideation and implementation.
+#### Game Design Pattern Improvements from the previous assignment
+A major improvement that I have made from the previous assignment is upgrading the audio manager singleton to play context-based soundtracks depending on what the player is doing. I have implemented the State design pattern in my Singleton to handle playing specific music in different game states, such as when the player is in combat, in a UI menu, or out of combat.
 
-#### Interactive media scenario information
-The scenario I will be using to develop the assignment's deliverables will be a boss fight scene loosely inspired by my GDW game. The purpose of this scenario is to provide a small scope game that presents all implementations of the assignment deliverables and to create systems eligible to be implemented in my GDW game. 
-The player is expected to use various abilities, such as a fire or water ability, to defeat the boss. The game will include audio functionality, a simple combat system, a boss enemy, and various systems to handle health, damage, ability spawning, etc.
+<img width="1814" height="720" alt="Screenshot 2025-11-19 232825" src="https://github.com/user-attachments/assets/058fa02a-88e7-47d7-88d5-f0f85851a495" />
 
-#### Singleton
-<img width="700" height="478" alt="singleton" src="https://github.com/user-attachments/assets/18eae267-eb6e-4194-b172-7a32c30be148" />
+This is the function that changes the music state inside the audio manager Singleton. The reason why I implemented it this way was due to the Singleton being a global instance that can be accessed from any class. For instance, inside my game, I accessed the singleton to change the music state from 3 different blueprints across my project for certain events, such as entering the main menu level, which changes to the InMenu state, entering the main level, which changes to the Default state, and hitting the boss, which changes to the InCombat state. It was also implemented this way due to most of the audio logic already being handled by the Singleton.
 
-For the singleton implementation, I decided to create an Audio Manager using the Game Instance Blueprint that manages the playback of sound effects and music, stops music, and adjusts audio volume.
-It was implemented this way to provide easy access to playing sound effects and music or stopping music from any class. The main reason for this way of implementation was to make adjusting the volume of both sound effects and music simpler.
-For instance, the singleton that I have implemented contains a variable that corresponds to the sound effect or music volume managed in one single place. If I wanted to do volume control without a singleton, I would have to set the volume of every sound effect I use manually.
-My interactive media experience benefits from this because audio is a crucial part of any game, and being able to easily handle audio inside any game makes the development process simpler.
+#### Optimization
 
-#### Command design pattern
-<img width="1224" height="292" alt="Command" src="https://github.com/user-attachments/assets/9f762956-59e2-488e-8fec-f9226eb39de4" />
 
-The command design pattern implementation was definitely the trickiest one. I decided to create a system that handles commands for the gameplay mechanics. To explain in further detail, I created a command interface that includes an execution function that allows commands like swapping abilities and attacking to be created.
-The command pattern was implemented this way to allow for a more complex but better way of handling gameplay mechanic logic, where the ability logic is all handled inside the command, while the execution can be handled anywhere as long as there is a reference to it. 
-The command implementation benefits the experience as it provides a more modular approach to creating and executing abilities in the game.
+#### Observer and State
 
-#### Factory pattern
-<img width="797" height="310" alt="factory" src="https://github.com/user-attachments/assets/5edf21e8-9e4d-4fb3-a9d0-86160b822776" />
 
-Moving on to the factory pattern implementation, I created a factory that creates different abilities. The base object that the factory produces is a projectile, but inheriting from the projectile, I created a fire and water projectile that have their own unique interactions with the boss and player.
-It was implemented this way to make spawning the abilities easier while also providing a better implementation alongside the command design pattern. The experience benefits from this implementation because it creates a very modular system that can be easily expanded in the future if more abilities need to be added.
+#### Performance Profiling
 
-#### Plugin/DLL
-<img width="317" height="302" alt="plugin" src="https://github.com/user-attachments/assets/d2ee53c0-cd19-4832-9a74-198f32a6f4c2" />
-
-When it comes to the Plugin/DLL implementation, I created a health system that can add health, take away health, and check if the entity is dead. I used this in my game to handle the health of the player and the boss enemy. It is a very basic implementation of a health system, but it can be further iterated upon to allow for more features, like storing health data inside the system instead of creating health data individually for each entity. This implementation suits this experience as it provides a very easy-to-use system to do simple health calculations, while also being extremely reusable on possible future projects where a health system would be needed.
 
 #### Video Report
-https://youtu.be/ROFFGtmd5G8
+https://youtu.be/swCHUKtXIfY
